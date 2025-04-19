@@ -13,7 +13,7 @@ function Home() {
   const fetchMovies = async (searchTerm = 'popular', pageNum = 1) => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://www.omdbapi.com/?s=${searchTerm}&page=${pageNum}&apikey=${import.meta.env.VITE_OMDB_API_KEY}`);
+      const response = await axios.get(`https://www.omdbapi.com/?s=${searchTerm}&page=${pageNum}&apikey=${import.meta.env.VITE_OMDB_API_KEY}`);
       if (response.data.Search) {
         setMovies((prev) => (pageNum === 1 ? response.data.Search : [...prev, ...response.data.Search]));
       } else {
